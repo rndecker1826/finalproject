@@ -34,14 +34,13 @@ import {
   Legend
 } from "chart.js";
 
-// Register Chart.js Components
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
   LineElement,
   PointElement,
-  Tooltip,  
+  Tooltip,
   Legend
 );
 
