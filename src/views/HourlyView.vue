@@ -5,7 +5,7 @@
       {{ city }}, {{ state }} — Hourly Weather
     </h1>
 
-    <div v-if="chartData" class="w-full bg-white/70 backdrop-blur rounded-xl shadow p-0 md:p-6">
+    <div v-if="chartData" class="w-full bg-white rounded-xl shadow p-4">
       <div class="relative h-[50vh] min-h-[320px]">
         <Bar :data="chartData" :options="chartOptions" />
       </div>
