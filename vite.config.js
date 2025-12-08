@@ -7,5 +7,5 @@ export default defineConfig({
 })
 
 module.exports = defineConfig{	
-publicPath: ‘/REPO_NAME/’ 
+publicPath: ‘/finalproject/’ 
 }
