@@ -33,7 +33,7 @@ import {
   BarController,
   LineController,
   Tooltip,
-  Legend,
+  Legend
 } from "chart.js";
 
 import { getHourlyForecast } from "../services/WeatherService.js";
