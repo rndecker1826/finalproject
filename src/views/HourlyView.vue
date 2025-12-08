@@ -19,8 +19,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
+
 import { Bar } from "vue-chartjs";
 
 import {
@@ -33,8 +32,6 @@ import {
   Legend,
   Tooltip
 } from "chart.js";
-
-import { getHourlyForecast } from "../services/WeatherService.js";
 
 // Register Chart.js Components
 ChartJS.register(
