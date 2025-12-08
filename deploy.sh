@@ -5,5 +5,5 @@ cd dist
 git init
 git add -A
 git commit -m 'New Deployment’
-git push -f git@github.com:USERNAME/REPO_NAME.git master:gh-pages
+git push -f git@github.com:rndecker1826/finalproject.git master:gh-pages
 cd –
