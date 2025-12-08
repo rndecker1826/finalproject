@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "vite build",
     “deploy”: “sh deploy.sh”,
-    "preview": "vite preview"
   },
   "dependencies": {
     "chart.js": "^4.5.1",
