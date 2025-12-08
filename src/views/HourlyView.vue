@@ -30,13 +30,9 @@ import {
   BarElement,
   LineElement,
   PointElement,
-  BarController,
-  LineController,
   Tooltip,
   Legend
 } from "chart.js";
-
-import { getHourlyForecast } from "../services/WeatherService.js";
 
 ChartJS.register(
   CategoryScale,
@@ -44,8 +40,6 @@ ChartJS.register(
   BarElement,
   LineElement,
   PointElement,
-  BarController,
-  LineController,
   Tooltip,
   Legend
 );
@@ -63,7 +57,6 @@ const state = ref("");
 onMounted(async () => {
   const decoded = decodeURIComponent(route.params.location);
   const parts = decoded.split(",");
-
   city.value = parts[0];
   state.value = parts[1] ?? "";
 
@@ -80,18 +73,24 @@ onMounted(async () => {
         type: "line",
         label: "Temperature (°F)",
         data: temps.value,
-        borderWidth: 2,
+        borderColor: "#2563eb",
+        backgroundColor: "rgba(37, 99, 235, 0.35)",
         tension: 0.35,
+        borderWidth: 2,
         pointRadius: 1,
-        yAxisID: "y",
+        yAxisID: "y"
       },
       {
         type: "bar",
         label: "Rainfall (inches)",
         data: rain.value.map(v => Number(v.toFixed(2))),
-        yAxisID: "y1",
-      },
-    ],
+        backgroundColor: "rgba(34, 197, 94, 0.6)",
+        borderRadius: 5,
+        barPercentage: 0.85,
+        categoryPercentage: 0.9,
+        yAxisID: "y1"
+      }
+    ]
   };
 });
 
@@ -104,29 +103,32 @@ const chartOptions = computed(() => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        grid: { display: false },
+        ticks: { maxRotation: 0 },
+        grid: { color: "rgba(0,0,0,0.08)" }
       },
       y: {
         beginAtZero: true,
+        suggestedMax: Math.ceil(maxTemp / 30) * 30,
+        ticks: { stepSize: 10 },
+        title: { display: true, text: "Temperature (°F)" },
+        grid: { color: "rgba(0,0,0,0.12)" }
       },
       y1: {
         beginAtZero: true,
+        suggestedMax: Math.ceil(maxRain / 0.03) * 0.03,
+        ticks: { stepSize: 0.05 },
         position: "right",
-      },
+        grid: { drawOnChartArea: true, color: "rgba(0,0,0,0.12)" },
+        title: { display: true, text: "Rainfall (inches)" }
+      }
     },
     plugins: {
-      legend: {
-        display: true,
-      },
-      tooltip: {
-        mode: "index",
-        intersect: false,
-      },
-    },
+      legend: { labels: { font: { size: 16 } } },
+      tooltip: { mode: "index", intersect: false }
+    }
   };
 });
 </script>
-
 
 <style scoped>
 canvas {
