@@ -19,7 +19,8 @@
 </template>
 
 <script setup>
-
+import { ref, onMounted, computed } from "vue";
+import { useRoute } from "vue-router";
 import { Bar } from "vue-chartjs";
 
 import {
@@ -32,11 +33,6 @@ import {
   Tooltip,
   Legend
 } from "chart.js";
-
-  const forceControllers = {
-    line: LineElement,
-    bar: BarElement
-  }
 
 // Register Chart.js Components
 ChartJS.register(
