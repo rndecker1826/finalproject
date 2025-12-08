@@ -29,9 +29,14 @@ import {
   BarElement,
   LineElement,
   PointElement,
-  Legend,
-  Tooltip
+  Tooltip,
+  Legend
 } from "chart.js";
+
+  const controllers = {
+    line: LineElement,
+    bar: BarElement,
+  }
 
 // Register Chart.js Components
 ChartJS.register(
@@ -40,8 +45,8 @@ ChartJS.register(
   BarElement,
   LineElement,
   PointElement,
+  Tooltip  
   Legend,
-  Tooltip
 );
 
 const route = useRoute();
