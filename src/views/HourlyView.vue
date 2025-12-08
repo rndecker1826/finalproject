@@ -30,7 +30,7 @@ import {
   LineElement,
   PointElement,
   Tooltip,
-  Legend,
+  Legend
 } from "chart.js";
 
   const forceControllers = {
