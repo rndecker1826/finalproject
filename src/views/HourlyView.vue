@@ -30,10 +30,10 @@ import {
   LineElement,
   PointElement,
   Tooltip,
-  Legend
+  Legend,
 } from "chart.js";
 
-  const controllers = {
+  const forceControllers = {
     line: LineElement,
     bar: BarElement,
   }
