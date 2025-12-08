@@ -46,7 +46,7 @@ ChartJS.register(
   LineElement,
   PointElement,
   Tooltip  
-  Legend,
+  Legend
 );
 
 const route = useRoute();
