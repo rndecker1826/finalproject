@@ -35,7 +35,7 @@ import {
 
   const forceControllers = {
     line: LineElement,
-    bar: BarElement,
+    bar: BarElement
   }
 
 // Register Chart.js Components
