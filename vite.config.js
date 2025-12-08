@@ -6,7 +6,3 @@ export default defineConfig({
   plugins: [vue()],
   base: ‘/finalproject/’
 })
-
-module.exports = defineConfig{	
-publicPath: ‘/finalproject/’ 
-}
