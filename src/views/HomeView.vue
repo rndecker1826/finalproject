@@ -99,7 +99,7 @@ onMounted(() => {
   if (stored) saved.value = JSON.parse(stored);
 
   // Load a default weather entry
-  searchQuery.value = "";
+  searchQuery.value = "Raleigh, NC";
   searchWeather();
 });
 
