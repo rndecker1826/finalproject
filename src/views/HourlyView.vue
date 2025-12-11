@@ -73,7 +73,7 @@ onMounted(async () => {
         type: "line",
         label: "Temperature (°F)",
         data: temps.value,
-        borderColor: "rgba(99, 135, 255, 0.74)"",
+        borderColor: "rgba(99, 135, 255, 0.74)",
         backgroundColor: "rgba(99, 125, 255, 0.2)",
         tension: 0.35,
         borderWidth: 2,
