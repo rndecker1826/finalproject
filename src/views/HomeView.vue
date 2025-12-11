@@ -173,10 +173,14 @@ const bg = computed(() => {
   // Map weather condition to (GIF or JPG)
   let file = "clear.jpg";
 
-  if (condition.includes("storm")) file = "storm.gif";
-  else if (condition.includes("snow")) file = "snow.gif";
-  else if (condition.includes("rain")) file = "rainy.gif";
-  else if (condition.includes("cloud")) file = "cloudy.gif";
+if (["storm", "thunder", "lightning"].some(w => condition.includes(w))) {
+    file = "storm.gif"; 
+    } else if (["snow", "sleet", "blizzard"].some(w => condition.includes(w))) {
+    file = "snow.gif"; 
+    } else if (["rain", "drizzle", "shower"].some(w => condition.includes(w))) {
+    file = "rainy.gif"; 
+    } else if (["cloud", "overcast"].some(w => condition.includes(w))) {
+    file = "cloudy.gif";
   else if (isNight) file = "night.jpg";
 
   // Progressive loading:
