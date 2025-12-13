@@ -80,6 +80,8 @@ onMounted(async () => {
         type: "line",
         label: "Temperature (°F)",
         data: temps.value,
+        borderColor: "rgba(99, 135, 255, 0.74)", // line color
+        backgroundColor: "rgba(99, 125, 255, 0.2)",
         borderWidth: 2,
         tension: 0.35,
         pointRadius: 1,
@@ -89,6 +91,8 @@ onMounted(async () => {
         type: "bar",
         label: "Rainfall (inches)",
         data: rain.value.map(v => Number(v.toFixed(2))),
+        backgroundColor: "rgba(54, 235, 172, 0.6)", // bar color
+        borderColor: "rgba(1, 236, 153, 1)",
         yAxisID: "y1",
       },
     ],

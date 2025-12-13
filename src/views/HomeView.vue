@@ -170,26 +170,37 @@ const bg = computed(() => {
   const pick = (file) =>
     new URL(`../assets/backgrounds/${file}`, import.meta.url).href;
 
-  // Map weather condition to (GIF or JPG)
-  let file = "clear.jpg";
+  let file;
 
-  if (condition.includes("storm")) file = "storm.gif";
-  else if (condition.includes("snow")) file = "snow.gif";
-  else if (condition.includes("rain")) file = "rainy.gif";
-  else if (condition.includes("cloud")) file = "cloudy.gif";
-  else if (isNight) file = "night.jpg";
+  // Assign GIF backgrounds for certain weather conditions first
+  if (["storm", "thunder", "lightning"].some(w => condition.includes(w))) {
+    file = "storm.gif";
+  } else if (["snow", "sleet", "blizzard"].some(w => condition.includes(w))) {
+    file = "snow.gif";
+  } else if (["rain", "drizzle", "shower", "mist"].some(w => condition.includes(w))) {
+    file = "rainy.gif";
+  } else if (["cloud", "overcast"].some(w => condition.includes(w))) {
+    file = "cloudy.gif";
+  } else (["clear", "sunny"].some(w => condition.includes(w))) {
+    file = "clear.jpg";
+  } else {
+    file = "clear.jpg"; // fallback
+  }
 
-  // Progressive loading:
+  // Only show night image if no other GIF or image was assigned
+  if (!file.endsWith(".gif") && isNight) {
+    file = "night.jpg";
+  }
+
   const isGif = file.endsWith(".gif");
 
   return {
     low: isGif ? pick(file) : pick(file.replace(".jpg", "_low.jpg")),
     high: pick(file),
-    dark:
-      isNight ||
-      ["rain", "storm", "snow"].some((w) => condition.includes(w)),
+    dark: isNight, // keep the dark overlay whenever it's night
   };
 });
+
 
 // Load high-resolution lazily and fade-in
 watch(
