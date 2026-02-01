@@ -4,7 +4,7 @@
 
     <RouterLink :to="hourlyLink" class="font-bold">Hourly</RouterLink>
 
-    <RouterLink :to="forecastLink" class="font-bold">5 Day Forecast</RouterLink>
+    <RouterLink :to="forecastLink" class="font-bold">3 Day Forecast</RouterLink>
   </nav>
 </template>
 
