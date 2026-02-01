@@ -2,7 +2,7 @@
   <div class="p-6">
 
     <h1 class="text-3xl font-bold mb-4">
-      {{ city }}, {{ state }} — 5 Day Forecast
+      {{ city }}, {{ state }} — 3 Day Forecast
     </h1>
 
     <p v-if="loading">Loading forecast…</p>
